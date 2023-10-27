@@ -81,8 +81,8 @@ public:
 
         // Slice
         std::vector<std::thread> thread_list;
-        int chunk_size = 10000000;
-        int chunk_num = (end - start) / chunk_size;
+        ull chunk_size = 10000000;
+        ull chunk_num = (end - start) / chunk_size;
         for (ull i = 0; i < chunk_num; i++)
         {
             ull chunk_start = start + (i * chunk_size);
