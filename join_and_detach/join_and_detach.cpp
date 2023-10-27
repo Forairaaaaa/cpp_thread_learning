@@ -36,7 +36,12 @@ void detach_shit()
     std::thread t1(eat_shit, 2);
 
     //t1.join();
-    t1.detach();
+    //t1.detach();
+
+    if (t1.joinable())
+        t1.detach();
+
+    //std::this_thread::sleep_for(seconds(5));
 }
 
 
