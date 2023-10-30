@@ -160,8 +160,8 @@ public:
 private:
     void _print_shit(std::string how, double& spentTime)
     {
-        std::cout << how << " \tfinish in: " << spentTime << "s\t";
-        std::cout << "(get: " << _even_sum << " " << _odd_sum << ")\n";
+        std::cout << how << " \tFinished in: " << spentTime << "s\t";
+        std::cout << "(Result: " << _even_sum << " " << _odd_sum << ")\n";
     }
 };
 
