@@ -6,7 +6,7 @@
 
 
 
-/// Function pointer and lamda 
+/// Function pointer and lambda 
 void lamda_shit()
 {
     auto shit = [](int shit)
