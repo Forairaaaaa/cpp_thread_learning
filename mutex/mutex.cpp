@@ -88,15 +88,15 @@ void timed_mutex_shit()
 std::recursive_mutex rm;
 int rm_shit = 0;
 
-void recursive_shit()
+void recursive_shit(std::string name)
 {
     rm.lock();
     rm_shit--;
     
     if (rm_shit > 0)
     {
-        std::cout << "i: " << rm_shit << "\n";
-        recursive_shit();
+        std::cout << name << " i: " << rm_shit << "\n";
+        recursive_shit(name);
     }
     rm.unlock();
 }
@@ -108,11 +108,21 @@ void recursive_mutex_shit()
             rm.lock();
             rm_shit = 666;
             //rm_shit = 114514;
-            recursive_shit();
+            recursive_shit("t1");
+            rm.unlock();
+        });
+
+    std::thread t2([]()
+        {
+            rm.lock();
+            rm_shit = 666;
+            //rm_shit = 114514;
+            recursive_shit("t2");
             rm.unlock();
         });
 
     t1.join();
+    t2.join();
 }
 
 
