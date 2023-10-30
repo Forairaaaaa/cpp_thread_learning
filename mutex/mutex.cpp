@@ -127,12 +127,40 @@ void recursive_mutex_shit()
 
 
 
+std::mutex lgm;
+
+// Auto unlock when out of scope 
+void lock_guard_shit()
+{
+    std::thread t1([]()
+        {
+            std::lock_guard<std::mutex> lock(lgm);
+            std::cout << "t1 haha\n";
+            std::this_thread::sleep_for(seconds(4));
+        });
+
+    std::this_thread::sleep_for(seconds(1));
+
+    std::thread t2([]()
+        {
+            std::cout << "t2 waiting\n";
+            std::lock_guard<std::mutex> lock(lgm);
+            std::cout << "t2 haha\n";
+        });
+
+    t1.join();
+    t2.join();
+}
+
+
+
 int main()
 {
     // Mutual Exclusion
     //mutex_shit();
     //timed_mutex_shit();
-    recursive_mutex_shit();
+    //recursive_mutex_shit();
+    lock_guard_shit();
 }
 
 
