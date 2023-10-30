@@ -24,16 +24,16 @@ int main()
             std::unique_lock<std::mutex> lock(shit_mutex);
             std::cout << "t1 get mutex\n";
 
-            shit_num = 6;
-            std::cout << "t1 set shit 6\n";
-            shit_cv.notify_one();
-
-            shit_num = 114514;
-            std::cout << "t1 set shit 114514\n";
-            shit_cv.notify_one();
+            for (int i = 0; i < 128; i++)
+            {
+                shit_num = i;
+                std::cout << "t1 set shit to " << shit_num << "\n";
+                shit_cv.notify_one();
+            }
 
             std::cout << "t1 bye\n";
         });
+
 
 
     std::thread t2([]()
