@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "join_and_detach", "join_and
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mutex", "mutex\mutex.vcxproj", "{F6662C76-BB7D-4AED-B34D-BF371389490D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "condition_variable", "condition_variable\condition_variable.vcxproj", "{7128F12D-309B-4283-816A-D190A281D563}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{F6662C76-BB7D-4AED-B34D-BF371389490D}.Release|x64.Build.0 = Release|x64
 		{F6662C76-BB7D-4AED-B34D-BF371389490D}.Release|x86.ActiveCfg = Release|Win32
 		{F6662C76-BB7D-4AED-B34D-BF371389490D}.Release|x86.Build.0 = Release|Win32
+		{7128F12D-309B-4283-816A-D190A281D563}.Debug|x64.ActiveCfg = Debug|x64
+		{7128F12D-309B-4283-816A-D190A281D563}.Debug|x64.Build.0 = Debug|x64
+		{7128F12D-309B-4283-816A-D190A281D563}.Debug|x86.ActiveCfg = Debug|Win32
+		{7128F12D-309B-4283-816A-D190A281D563}.Debug|x86.Build.0 = Debug|Win32
+		{7128F12D-309B-4283-816A-D190A281D563}.Release|x64.ActiveCfg = Release|x64
+		{7128F12D-309B-4283-816A-D190A281D563}.Release|x64.Build.0 = Release|x64
+		{7128F12D-309B-4283-816A-D190A281D563}.Release|x86.ActiveCfg = Release|Win32
+		{7128F12D-309B-4283-816A-D190A281D563}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
