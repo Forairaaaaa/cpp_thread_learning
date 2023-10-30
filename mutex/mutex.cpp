@@ -103,15 +103,18 @@ void recursive_shit()
 
 void recursive_mutex_shit()
 {
-    rm_shit = 6;
-
     std::thread t1([]()
         {
+            rm.lock();
+            rm_shit = 666;
+            //rm_shit = 114514;
             recursive_shit();
+            rm.unlock();
         });
 
     t1.join();
 }
+
 
 
 int main()
