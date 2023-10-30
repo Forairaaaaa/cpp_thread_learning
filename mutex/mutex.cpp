@@ -43,6 +43,7 @@ void mutex_shit()
 }
 
 
+
 std::timed_mutex tm;
 
 void timed_mutex_shit()
@@ -62,7 +63,7 @@ void timed_mutex_shit()
 
     std::thread t2([]()
         {
-            std::this_thread::sleep_for(seconds(1));
+            std::this_thread::sleep_for(seconds(2));
 
             if (tm.try_lock_for(seconds(1)))
             {
@@ -73,6 +74,8 @@ void timed_mutex_shit()
             {
                 std::cout << "t2 shit on pants\n";
             }
+
+            std::cout << "t2 done\n";
         });
 
     t1.join();
@@ -80,11 +83,43 @@ void timed_mutex_shit()
 }
 
 
+
+//std::mutex rm;
+std::recursive_mutex rm;
+int rm_shit = 0;
+
+void recursive_shit()
+{
+    rm.lock();
+    rm_shit--;
+    
+    if (rm_shit > 0)
+    {
+        std::cout << "i: " << rm_shit << "\n";
+        recursive_shit();
+    }
+    rm.unlock();
+}
+
+void recursive_mutex_shit()
+{
+    rm_shit = 6;
+
+    std::thread t1([]()
+        {
+            recursive_shit();
+        });
+
+    t1.join();
+}
+
+
 int main()
 {
     // Mutual Exclusion
     //mutex_shit();
-    timed_mutex_shit();
+    //timed_mutex_shit();
+    recursive_mutex_shit();
 }
 
 
